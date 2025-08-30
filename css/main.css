@@ -1,0 +1,385 @@
+/* ===========================
+   Global Base Styles
+   =========================== */
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+}
+
+/* Center all main sections */
+section {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Headings + intro text are centered */
+h1, h2, h3,
+.section-title,
+.section-intro {
+  text-align: center;
+}
+
+/* ===========================
+   Dialogue Section
+   =========================== */
+#dialogue-section {
+  text-align: center; /* headings + intros */
+}
+
+.dialogue-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.dialogue-intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Explanatory paragraphs */
+.dialogue-explainer {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Dialogue container (chat UI) */
+#dialogue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 700px;
+  text-align: left; /* make conversation left-aligned */
+}
+
+/* Dialogue output box */
+#dialogue-output {
+  width: 100%;
+  min-height: 150px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.08);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  overflow-y: auto;
+  white-space: pre-line;
+}
+
+/* Dialogue form */
+#dialogue-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#dialogue-input {
+  width: 100%;
+  min-height: 140px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.8rem;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+#dialogue-form button {
+  align-self: flex-end;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  background: #4a7c59;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#dialogue-form button:hover {
+  background: #3a6045;
+}
+
+/* ===========================
+   Glossary
+   =========================== */
+#glossary {
+  text-align: left; /* definitions read better left aligned */
+}
+
+.glossary-term {
+  font-weight: bold;
+  color: #333;
+}
+
+.glossary-definition {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* ===========================
+   Toolkit (future)
+   =========================== */
+#toolkit {
+  text-align: left;
+}
+
+.tool-item {
+  margin-bottom: 1rem;
+}
+
+/* ===========================
+   Utilities
+   =========================== */
+.centered {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+/* Global paragraph alignment */
+.container p {
+  text-align: justify;
+}
+/* Limit line length for readability */
+.container {
+  max-width: 800px;   /* adjust as needed: 700–900px works well */
+  margin: 0 auto;     /* centers the content */
+  padding: 0 1rem;    /* breathing room on mobile */
+}
+
+.container p {
+  text-align: justify;
+  text-align-last: left; /* keeps last line neat */
+}
+/* Base container styling */
+.container {
+  max-width: 800px;   /* desktop default */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container p {
+  text-align: justify;
+  text-align-last: left;
+  line-height: 1.6;
+}
+
+/* Tablet (portrait and small landscape) */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+/* Large phones and small tablets */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%; /* use percentage for narrow screens */
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .container {
+    max-width: 95%;
+    font-size: 0.95rem; /* slightly smaller text */
+  }
+}
+/* Headings centered */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Section titles (like Dialogue, Welcome, etc.) */
+section h2,
+section h3 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* Paragraphs stay justified inside the container */
+.container p {
+  text-align: justify;
+  text-align-last: left; /* last line left aligned for readability */
+}
+/* Center all main content with a max width */
+.container, header, main, section, footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem; /* keeps breathing room on mobile */
+}
+
+/* Headings centered */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Section-specific titles */
+section h2,
+section h3 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* Paragraphs justified for readability */
+.container p,
+section p {
+  text-align: justify;
+  text-align-last: left; /* keeps last line left-aligned */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container, header, main, section, footer {
+    max-width: 95%;
+    padding: 0 0.5rem;
+  }
+}
+/* Section styling - soft card look */
+section {
+  background: #fafafa; /* very light gray */
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Keep text inside consistent */
+section p {
+  margin-bottom: 1rem;
+}
+
+/* Ensure dialogue section keeps its own feel */
+#dialogue-section {
+  background: #fefefe; /* slightly different white */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+/* Header (Opening Invitation) */
+header {
+  background: linear-gradient(135deg, #fefcf9, #f3eee7);
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 900px;
+}
+
+header h1, 
+header p {
+  color: #333;
+  line-height: 1.7;
+}
+
+
+/* Glossary link styling */
+
+
+/* Keep glossary links the same color before/after visiting */
+.glossary-link,
+.glossary-link:visited {
+  color: #0645ad;           /* pick your link color */
+  text-decoration: underline;
+}
+
+/* Nice hover/focus feedback (optional) */
+.glossary-link:hover,
+.glossary-link:focus {
+  background: #fff3b0;      /* soft highlight on hover */
+  outline: none;
+}
+/* When the page loads with #...-anchor in the URL, highlight the next glossary link */
+[id$="-anchor"]:target + .glossary-link {
+  background: #fff3b0;
+  box-shadow: 0 0 0 2px #ffe08a inset;
+  border-radius: 0.2rem;
+}
+/* --- Site Navigation: high contrast for visibility --- */
+.site-nav {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;   /* center under the page title */
+}
+
+.site-nav a:link,
+.site-nav a:visited {
+  color: #003366;            /* deep navy blue for strong contrast */
+  font-weight: 600;          /* bold enough to stand out */
+  text-decoration: none;
+  background: #e6f0ff;       /* soft blue highlight behind text */
+  padding: 0.3rem 0.6rem;    /* makes the background visible */
+  border-radius: 0.4rem;     /* soft corners */
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background: #99ccff;       /* stronger blue on hover */
+  color: #000;               /* solid black text on hover */
+  text-decoration: underline;
+}
+/* --- Final Glossary Link Styling --- */
+a.glossary-link:link,
+a.glossary-link:visited {
+  color: #0645ad;             /* strong readable blue */
+  font-weight: 600;           /* a bit bolder */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a.glossary-link:hover,
+a.glossary-link:focus-visible {
+  color: #000;                /* black on hover for contrast */
+  background: #fff3b0;        /* soft yellow highlight */
+  border-radius: 0.2rem;
+}
+/* --- Final Site Navigation Styling --- */
+.site-nav {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1.5rem;               /* space between links */
+  flex-wrap: wrap;           /* wrap on small screens */
+  justify-content: center;   /* center under the title */
+}
+
+.site-nav a:link,
+.site-nav a:visited {
+  color: #003366;            /* deep navy for strong contrast */
+  font-weight: 600;          /* bolder text */
+  text-decoration: none;
+  background: #e6f0ff;       /* soft blue button background */
+  padding: 0.4rem 0.8rem;    /* button spacing */
+  border-radius: 0.4rem;     /* rounded corners */
+  transition: background 0.2s, color 0.2s;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background: #99ccff;       /* brighter blue on hover */
+  color: #000;               /* black text on hover */
+  text-decoration: underline;
+}
+
