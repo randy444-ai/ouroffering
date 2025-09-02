@@ -401,11 +401,17 @@ a.glossary-link:focus-visible {
   border: 1px solid #e2e2e2;
   border-radius: .5rem;
 }
+
 .toolkit-menu a:hover { background: #f4f4f4; }
 
 /* Make anchor jumps land nicely below the sticky menu */
-.tool-entry { scroll-margin-top: 80px; }   /* adjust if your header is taller */
+.tool-entry { scroll-margin-top: 80px; }
 #toolkit-menu { scroll-margin-top: 80px; }
+
+/* Dropdown alignment additions */
+.toolkit-menu { align-items: center; }
+.toolkit-menu .spacer { margin-left: auto; }
+.jump-to select { margin-left: .35rem; }
 
 /* Small screens: allow horizontal scroll if needed */
 @media (max-width: 640px) {
@@ -415,5 +421,6 @@ a.glossary-link:focus-visible {
   }
   .toolkit-menu a { flex: 0 0 auto; }
 }
+
 
 
