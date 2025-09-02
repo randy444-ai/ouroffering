@@ -382,4 +382,38 @@ a.glossary-link:focus-visible {
   color: #000;               /* black text on hover */
   text-decoration: underline;
 }
+/* Sticky quick menu at top of Toolkit */
+.toolkit-menu {
+  position: sticky;
+  top: 0;                  /* sticks under your site header */
+  z-index: 10;
+  background: #fff;
+  padding: .6rem .75rem;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.toolkit-menu a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: .35rem .6rem;
+  border: 1px solid #e2e2e2;
+  border-radius: .5rem;
+}
+.toolkit-menu a:hover { background: #f4f4f4; }
+
+/* Make anchor jumps land nicely below the sticky menu */
+.tool-entry { scroll-margin-top: 80px; }   /* adjust if your header is taller */
+#toolkit-menu { scroll-margin-top: 80px; }
+
+/* Small screens: allow horizontal scroll if needed */
+@media (max-width: 640px) {
+  .toolkit-menu {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .toolkit-menu a { flex: 0 0 auto; }
+}
+
 
