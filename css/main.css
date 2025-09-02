@@ -421,6 +421,9 @@ a.glossary-link:focus-visible {
   }
   .toolkit-menu a { flex: 0 0 auto; }
 }
+.jump-to { opacity:.9; }
+.return-links { margin-top:1rem; }
+
 
 
 
