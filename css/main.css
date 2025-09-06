@@ -449,6 +449,17 @@ a.glossary-link:focus-visible {
 }
 .centered { text-align: center; }
 
+/* Substack button + footer helper */
+.btn {
+  display: inline-block;
+  padding: .5rem .9rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  text-decoration: none;
+}
+.btn:hover { background: #f3f3f3; }
+.page-footer .footer-cta { text-align: center; margin-top: .5rem; }
+
 
 
 
