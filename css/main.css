@@ -424,6 +424,31 @@ a.glossary-link:focus-visible {
 .jump-to { opacity:.9; }
 .return-links { margin-top:1rem; }
 
+/* Shared status UI */
+.notice {
+  max-width: 760px;
+  margin: 1rem auto;
+  padding: 1rem 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+}
+.badge {
+  display: inline-block;
+  font-size: .8rem;
+  padding: .15rem .6rem;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  margin-left: .5rem;
+  vertical-align: middle;
+}
+.placeholder-note {
+  font-style: italic;
+  opacity: .85;
+  margin: .25rem 0 .5rem;
+}
+.centered { text-align: center; }
+
 
 
 
