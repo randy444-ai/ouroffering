@@ -14,7 +14,8 @@
   <meta property="og:title" content="Toolkit — Our Offering" />
   <meta property="og:description" content="Practical tools for awakening: Self-Observation, Self-Remembering, STOP practice, steady attention, generosity, and more." />
 
-<link rel="stylesheet" href="css/main.css?v=20250907-10" />
+<link rel="stylesheet" href="css/main.css?v=20250907-20" />
+
   
 </head>
 
@@ -502,9 +503,96 @@
   setCurrent(location.hash || '');
 })();
 </script>
+<!-- Site JS: auto-highlights current page in header & footer navs -->
+<script src="js/main.js?v=4" defer></script>
+
+<!-- Toolkit in-page menu: smooth scroll + highlight active section -->
+<script>
+(function () {
+  const links = Array.from(document.querySelectorAll('.toolkit-menu a[href^="#"]'));
+  const select = document.getElementById('tool-jump');
+
+  function setCurrent(hash) {
+    links.forEach(a => {
+      if (a.getAttribute('href') === hash) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+    if (select && select.value !== hash) select.value = hash || '';
+  }
+
+  // Smooth-scroll + set current on click
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      const hash = a.getAttribute('href');
+      const target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', hash);
+      setCurrent(hash);
+    });
+  });
+
+  // Smooth-scroll + set current on dropdown change
+  if (select) {
+    select.addEventListener('change', () => {
+      const hash = select.value;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', hash);
+      setCurrent(hash);
+    });
+  }
+
+  // Observe sections and update highlight while scrolling
+  const ids = links.map(a => a.getAttribute('href')).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setCurrent('#' + entry.target.id);
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0, 1] });
+    ids.forEach(h => { const el = document.querySelector(h); if (el) io.observe(el); });
+  }
+
+  // Initialize from URL (if there’s a hash)
+  setCurrent(location.hash || '');
+})();
+</script>
+<script>
+(function () {
+  const links = Array.from(document.querySelectorAll('.toolkit-menu a[href^="#"]'));
+
+  function setCurrent(hash) {
+    links.forEach(a => {
+      const on = a.getAttribute('href') === hash;
+      if (on) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  // Click: smooth-scroll and highlight
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      const hash = a.getAttribute('href');
+      const target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', hash);
+      setCurrent(hash);
+    });
+  });
+
+  // Initialize from current URL
+  setCurrent(location.hash || '');
+})();
+</script>
 
 </body>
 </html>
+
 
 
 
