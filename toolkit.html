@@ -33,7 +33,8 @@
 
   <label class="jump-to" for="tool-jump">
     Jump to:
-    <select id="tool-jump" onchange="if(this.value) location.hash=this.value;">
+    <select id="tool-jump">
+
       <option value="">— select —</option>
       <option value="#self-observation">Self-Observation</option>
       <option value="#self-remembering">Self-Remembering</option>
@@ -391,8 +392,63 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  const links = Array.from(document.querySelectorAll('.toolkit-menu a[href^="#"]'));
+  const select = document.getElementById('tool-jump');
+
+  function setCurrent(hash) {
+    links.forEach(a => {
+      if (a.getAttribute('href') === hash) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+    if (select && select.value !== hash) select.value = hash || '';
+  }
+
+  // Smooth-scroll on link clicks
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      const hash = a.getAttribute('href');
+      const target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', hash);
+      setCurrent(hash);
+    });
+  });
+
+  // Smooth-scroll on dropdown change
+  if (select) {
+    select.addEventListener('change', () => {
+      const hash = select.value;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', hash);
+      setCurrent(hash);
+    });
+  }
+
+  // Update highlight while scrolling
+  const ids = links.map(a => a.getAttribute('href')).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setCurrent('#' + entry.target.id);
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0, 1] });
+    ids.forEach(h => { const el = document.querySelector(h); if (el) io.observe(el); });
+  }
+
+  // Initialize from current hash
+  setCurrent(location.hash || '');
+})();
+</script>
+
 </body>
 </html>
+
 
 
 
