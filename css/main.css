@@ -465,6 +465,8 @@ a.glossary-link:focus-visible {
   font-weight: 600;
 }
 
+.nav a[aria-current="page"] { text-decoration: underline; font-weight: 600; }
+
 
 
 
