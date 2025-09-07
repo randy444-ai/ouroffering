@@ -18,7 +18,8 @@
   <!-- <meta property="og:image" content="https://ouroffering.org/images/og.jpg" /> -->
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/main.css?v=7" />
+  <link rel="stylesheet" href="css/main.css?v=20250907-10" />
+
   <!-- <link rel="icon" href="favicon.ico" /> -->
 </head>
 
@@ -249,7 +250,7 @@ s
 
   <!-- Save the scroll position before following any glossary link,
        then restore it when you come back from glossary.html -->
-  <script>
+ <script>
   (function () {
     if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
 
@@ -261,7 +262,6 @@ s
         sessionStorage.setItem('return:path', location.pathname.replace(/^\//,''));
         sessionStorage.setItem('return:scrollY', String(window.scrollY));
       } catch (_) {}
-      // let the link navigate normally
     }, { capture: true });
 
     // Restore scroll when we come back
@@ -282,10 +282,11 @@ s
     window.addEventListener('pageshow', restore);
     window.addEventListener('load', restore);
   })();
-  </script>
+</script>
+
 <footer class="page-footer">
-  <nav>
-    <a href="index.html" aria-current="page">Home</a>
+  <nav class="nav" aria-label="Footer">
+    <a href="index.html">Home</a>
     <span aria-hidden="true">•</span>
     <a href="glossary.html">Glossary</a>
     <span aria-hidden="true">•</span>
@@ -298,7 +299,6 @@ s
     <a href="resources.html">Resources</a>
     <span aria-hidden="true">•</span>
     <a href="library.html">Library</a>
-
   </nav>
 
   <!-- Substack button -->
@@ -310,8 +310,11 @@ s
   </div>
 </footer>
 
+<!-- Load your updated JS so the nav auto-highlights -->
+<script src="js/main.js?v=3" defer></script>
 </body>
 </html>
+
 
 
 
