@@ -264,3 +264,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
+// Auto-mark the current page link in the header nav
+document.addEventListener('DOMContentLoaded', () => {
+  // Resolve current path (treat "" as index.html)
+  const path = (location.pathname.split('/').pop() || 'index.html').split('?')[0];
+
+  // Grab header nav links (works whether your <nav> has class="nav" or not)
+  const links = document.querySelectorAll('header nav a[href], .nav a[href]');
+  links.forEach(a => {
+    const href = a.getAttribute('href').split('?')[0];
+    if (href === path) a.setAttribute('aria-current', 'page');
+    // Special case: home page can be "" or "index.html"
+    if (path === '' && href === 'index.html') a.setAttribute('aria-current', 'page');
+  });
+});
+
