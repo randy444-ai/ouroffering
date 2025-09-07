@@ -460,6 +460,11 @@ a.glossary-link:focus-visible {
 .btn:hover { background: #f3f3f3; }
 .page-footer .footer-cta { text-align: center; margin-top: .5rem; }
 
+.nav a[aria-current="page"] {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 
 
 
