@@ -467,6 +467,11 @@ a.glossary-link:focus-visible {
 
 .nav a[aria-current="page"] { text-decoration: underline; font-weight: 600; }
 
+.toolkit-menu a[aria-current="location"] {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 
 
 
