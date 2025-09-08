@@ -409,19 +409,32 @@
   </div>
 </footer>
 
-  <!-- Substack button -->
-  <div class="footer-cta" style="text-align:center;margin-top:.5rem">
-    <a href="https://randyramsley.substack.com" target="_blank" rel="noopener"
-       style="display:inline-block;padding:.5rem .9rem;border:1px solid #ddd;border-radius:12px;text-decoration:none">
-      Read on Substack
-    </a>
-  </div>
-</footer>
+<!-- Force bold+underline for the current link in the FOOTER on this page -->
+<style>
+  .page-footer .nav a[aria-current="page"]{
+    font-weight:700 !important;
+    text-decoration:underline !important;
+  }
+</style>
 
-<!-- Site JS: header & footer nav highlight (ONE include only) -->
-<script src="js/main.js?v=4" defer></script>
+<!-- Site JS (header+footer current-page highlight). Only one include. -->
+<script src="js/main.js?v=5" defer></script>
 
-<!-- Toolkit quick menu: smooth scroll + underline active section (ONE script only) -->
+<!-- Hard-ensure Toolkit is marked current on this page (header & footer) -->
+<script>
+(function () {
+  var path = (location.pathname.split('/').pop() || 'index.html').split('?')[0];
+  if (path !== 'toolkit.html') return; // only runs on Toolkit page
+
+  document.querySelectorAll('header .nav a[href], footer .nav a[href], .nav a[href]')
+    .forEach(function(a){
+      var href = (a.getAttribute('href')||'').split('?')[0];
+      if (href === 'toolkit.html') a.setAttribute('aria-current','page');
+    });
+})();
+</script>
+
+<!-- Toolkit quick menu: smooth scroll + underline active section -->
 <script>
 (function () {
   const links = Array.from(document.querySelectorAll('.toolkit-menu a[href^="#"]'));
@@ -460,7 +473,7 @@
     });
   }
 
-  // Update while scrolling (optional but nice)
+  // Update while scrolling (optional)
   const ids = links.map(a => a.getAttribute('href')).filter(Boolean);
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
@@ -471,12 +484,12 @@
     ids.forEach(h => { const el = document.querySelector(h); if (el) io.observe(el); });
   }
 
-  // Initialize from current URL
   setCurrent(location.hash || '');
 })();
 </script>
 </body>
 </html>
+
 
 
 
