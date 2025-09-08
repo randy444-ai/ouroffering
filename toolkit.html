@@ -589,9 +589,62 @@
   setCurrent(location.hash || '');
 })();
 </script>
+<script src="js/main.js?v=4" defer></script>
+<script>
+(function () {
+  const links = Array.from(document.querySelectorAll('.toolkit-menu a[href^="#"]'));
+  const select = document.getElementById('tool-jump');
+
+  function setCurrent(hash) {
+    links.forEach(a => {
+      if (a.getAttribute('href') === hash) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+    if (select && select.value !== hash) select.value = hash || '';
+  }
+
+  // Click & dropdown behavior
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      const hash = a.getAttribute('href');
+      const el = document.querySelector(hash);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', hash);
+      setCurrent(hash);
+    });
+  });
+  if (select) {
+    select.addEventListener('change', () => {
+      const hash = select.value;
+      const el = document.querySelector(hash);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', hash);
+      setCurrent(hash);
+    });
+  }
+
+  // Optional: update on scroll (can omit if you want)
+  const ids = links.map(a => a.getAttribute('href')).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setCurrent('#' + entry.target.id);
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0, 1] });
+    ids.forEach(h => { const el = document.querySelector(h); if (el) io.observe(el); });
+  }
+
+  // Initialize from current URL
+  setCurrent(location.hash || '');
+})();
+</script>
 
 </body>
 </html>
+
 
 
 
