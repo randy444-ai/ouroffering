@@ -487,8 +487,29 @@
   setCurrent(location.hash || '');
 })();
 </script>
+<script>
+// Force bold + underline in the FOOTER for the current page link (Toolkit)
+(function () {
+  // Make sure Toolkit is marked as current in header & footer
+  var path = (location.pathname.split('/').pop() || 'index.html').split('?')[0];
+  if (path === '' ) path = 'index.html';
+  document.querySelectorAll('header .nav a[href], footer .nav a[href]').forEach(function(a){
+    var href = (a.getAttribute('href')||'').split('?')[0];
+    if (href === path) a.setAttribute('aria-current','page');
+  });
+
+  // Now hard-style the footer current link with !important
+  var el = document.querySelector('footer .nav a[aria-current="page"]');
+  if (el) {
+    el.style.setProperty('font-weight','800','important');      // heavier than 700 so it shows
+    el.style.setProperty('text-decoration','underline','important');
+  }
+})();
+</script>
+
 </body>
 </html>
+
 
 
 
