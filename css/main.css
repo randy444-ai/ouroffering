@@ -472,6 +472,8 @@ a.glossary-link:focus-visible {
   font-weight: 600;
 }
 
+.entry-subtitle { font-style: italic; opacity: .85; margin-top: .25rem; }
+
 
 
 
