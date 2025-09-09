@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ouroffering.org/</loc></url>
-  <url><loc>https://ouroffering.org/glossary.html</loc></url>
-  <url><loc>https://ouroffering.org/glossary-deep.html</loc></url>
-  <url><loc>https://ouroffering.org/toolkit.html</loc></url>
-  <url><loc>https://ouroffering.org/dialogue.html</loc></url>
-  <url><loc>https://ouroffering.org/resources.html</loc></url>
+  <url><loc>https://ouroffering.org/</loc><lastmod>2025-09-09</lastmod></url>
+  <url><loc>https://ouroffering.org/glossary.html</loc><lastmod>2025-09-09</lastmod></url>
+  <url><loc>https://ouroffering.org/glossary-deep.html</loc><lastmod>2025-09-09</lastmod></url>
+  <url><loc>https://ouroffering.org/toolkit.html</loc><lastmod>2025-09-09</lastmod></url>
+  <url><loc>https://ouroffering.org/dialogue.html</loc><lastmod>2025-09-09</lastmod></url>
+  <url><loc>https://ouroffering.org/resources.html</loc><lastmod>2025-09-09</lastmod></url>
 </urlset>
