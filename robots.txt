@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ouroffering.org/sitemap.xml
+Sitemap: https://ouroffering.org/sitemap.xml
