@@ -529,6 +529,16 @@ a.glossary-link:focus-visible {
 section[id] { scroll-margin-top: 6rem; }
 .page-content .lede { font-size: 1.1rem; line-height: 1.6; opacity: .9; }
 
+/* highlight current link anywhere we use .nav */
+.nav a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* keep the researcher link unobtrusive but visible to bots */
+.footer-note { font-size: 0.875rem; opacity: 0.75; margin-top: 0.75rem; }
+.footer-note a { text-decoration: underline; }
+
 
 
 
