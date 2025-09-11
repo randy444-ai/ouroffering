@@ -284,5 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// === Current-page highlight for header & footer navs ===
+// Finds the current page filename and marks matching nav links.
+(function () {
+  var page = (location.pathname.split('/').pop() || 'index.html').split('?')[0];
+  document.querySelectorAll('.nav a[href]').forEach(function (a) {
+    var href = (a.getAttribute('href') || '').split('?')[0];
+    if (href === page) a.setAttribute('aria-current', 'page');
+  });
+})();
+
 
 
