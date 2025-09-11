@@ -465,7 +465,7 @@ a.glossary-link:focus-visible {
   font-weight: 600;
 }
 
-.nav a[aria-current="page"] { text-decoration: underline; font-weight: 600; }
+.site-nav a[aria-current="page"] { text-decoration: underline; font-weight: 600; }
 
 .toolkit-menu a[aria-current="location"] {
   text-decoration: underline;
@@ -528,6 +528,7 @@ a.glossary-link:focus-visible {
 }
 section[id] { scroll-margin-top: 6rem; }
 .page-content .lede { font-size: 1.1rem; line-height: 1.6; opacity: .9; }
+
 
 
 
