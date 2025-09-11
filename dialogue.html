@@ -41,6 +41,17 @@
   })();
 </script>
 
+<script>
+  // Set aria-current="page" on the matching nav link
+  (function () {
+    var here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.site-nav a[href]').forEach(function(a){
+      var target = a.getAttribute('href').split('#')[0];
+      if (target === here) a.setAttribute('aria-current', 'page');
+    });
+  })();
+</script>
+
 
   </header>
 
@@ -132,6 +143,7 @@
 
 </body>
 </html>
+
 
 
 
