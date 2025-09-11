@@ -28,15 +28,26 @@
     <!-- INTRO -->
     <header>
       <h1>Our Offering</h1>
-     <nav class="nav" aria-label="Primary">
-  <a href="index.html">Home</a>
-  <a href="glossary.html">Glossary</a>
-  <a href="glossary-deep.html">Deep Glossary</a>
-  <a href="toolkit.html">Toolkit</a>
-  <a href="dialogue.html">Dialogue</a>
-  <a href="resources.html">Resources</a>
-  <a href="library.html">Library</a>
+     <nav class="site-nav" aria-label="Main">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="glossary.html">Glossary</a></li>
+    <li><a href="toolkit.html">Toolkit</a></li>
+    <li><a href="dialogue.html">Dialogue</a></li>
+    <li><a href="resources.html">Resources</a></li>
+  </ul>
 </nav>
+<script>
+  // Set aria-current="page" on the matching nav link
+  (function () {
+    var here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.site-nav a[href]').forEach(function(a){
+      var target = a.getAttribute('href').split('#')[0];
+      if (target === here) a.setAttribute('aria-current', 'page');
+    });
+  })();
+</script>
+
 
 
       <section id="warning" class="radical-warning">
@@ -314,6 +325,7 @@ s
 <script src="js/main.js?v=3" defer></script>
 </body>
 </html>
+
 
 
 
