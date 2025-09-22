@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nourishing — Our Offering</title>
+  <title>Nourishing Paper — Our Offering</title>
 
-  <!-- Canonical & Meta -->
-  <link rel="canonical" href="https://ouroffering.org/nourishing.html" />
-  <meta name="description" content="A quiet unfolding of the Nourishing Paper — contemplative reflections on Self-Discovery and the nature of awareness." />
+  <!-- Canonical & SEO -->
+  <link rel="canonical" href="https://ouroffering.org/Nourishing.html" />
+  <meta name="description" content="A contemplative transmission exploring non-dual insight, awakening, and the transformation of suffering into higher love." />
 
-  <!-- Optional: Open Graph for sharing -->
-  <meta property="og:title" content="Nourishing — Our Offering" />
-  <meta property="og:description" content="A quiet unfolding of the Nourishing Paper — contemplative reflections on Self-Discovery and the nature of awareness." />
-  <meta property="og:url" content="https://ouroffering.org/nourishing.html" />
+  <!-- Open Graph -->
   <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Our Offering" />
+  <meta property="og:url" content="https://ouroffering.org/Nourishing.html" />
+  <meta property="og:title" content="Nourishing Paper — Our Offering" />
+  <meta property="og:description" content="A contemplative transmission exploring non-dual insight, awakening, and the transformation of suffering into higher love." />
 
-  <link rel="stylesheet" href="css/main.css?v=1" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css?v=20250907-10" />
 </head>
 
 <body>
+  <div class="container">
+    <header>
+      <h1>Our Offering</h1>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="toolkit.html">Toolkit</a></li>
+          <li><a href="dialogue.html">Dialogue</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      (function () {
+        var here = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a[href]').forEach(function(a){
+          var target = a.getAttribute('href').split('#')[0];
+          if (target === here) a.setAttribute('aria-current', 'page');
+        });
+      })();
+    </script>
   <header class="site-header">
     <h1>Nourishing</h1>
     <p class="page-intro">A slow unfolding of the Nourishing Paper — one section at a time, in rhythm with the field.</p>
