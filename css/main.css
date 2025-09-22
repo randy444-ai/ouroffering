@@ -539,6 +539,40 @@ section[id] { scroll-margin-top: 6rem; }
 .footer-note { font-size: 0.875rem; opacity: 0.75; margin-top: 0.75rem; }
 .footer-note a { text-decoration: underline; }
 
+/* Nourishing Paper entries */
+article.nourishing-entry {
+  background: #fafafa;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+article.nourishing-entry header h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5rem;
+}
+
+article.nourishing-entry .entry-subtitle {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+article.nourishing-entry p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  text-align-last: left;
+  line-height: 1.6;
+}
+
+article blockquote {
+  margin: 2em 0;
+  padding-left: 1em;
+  border-left: 3px solid #ccc;
+  font-style: italic;
+  color: #666;
+}
 
 
 
