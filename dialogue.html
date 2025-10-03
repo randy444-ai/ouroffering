@@ -14,125 +14,121 @@
   <meta property="og:title" content="Dialogue — Our Offering" />
   <meta property="og:description" content="A living conversation space where questions meet Being. Coming soon." />
 
-  <link rel="stylesheet" href="css/main.css?v=20250907-10" />
-
+  <!-- Bump version when you deploy -->
+  <link rel="stylesheet" href="css/main.css?v=20251003-1" />
 </head>
 
 <body>
   <header>
     <h1>Dialogue</h1>
-   <nav class="site-nav" aria-label="Main">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="glossary.html">Glossary</a></li>
-    <li><a href="toolkit.html">Toolkit</a></li>
-    <li><a href="dialogue.html">Dialogue</a></li>
-    <li><a href="resources.html">Resources</a></li>
-    <li><a href="Nourishing.html">Nourishing</a></li>
-  </ul>
-</nav>
-<script>
-  // Set aria-current="page" on the matching nav link
-  (function () {
-    var here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.site-nav a[href]').forEach(function(a){
-      var target = a.getAttribute('href').split('#')[0];
-      if (target === here) a.setAttribute('aria-current', 'page');
-    });
-  })();
-</script>
 
-<script>
-  // Set aria-current="page" on the matching nav link
-  (function () {
-    var here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.site-nav a[href]').forEach(function(a){
-      var target = a.getAttribute('href').split('#')[0];
-      if (target === here) a.setAttribute('aria-current', 'page');
-    });
-  })();
-</script>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li><a href="toolkit.html">Toolkit</a></li>
+        <li><a href="dialogue.html">Dialogue</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="Nourishing.html">Nourishing</a></li>
+      </ul>
+    </nav>
 
-
+    <script>
+      // Highlight current page in the main nav
+      (function () {
+        var here = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a[href]').forEach(function (a) {
+          var target = a.getAttribute('href').split('#')[0];
+          if (target === here) a.setAttribute('aria-current', 'page');
+        });
+      })();
+    </script>
   </header>
 
-  <main>
-    <section id="dialogue-section">
-      <h2 class="dialogue-title">Dialogue with AI <span class="badge">coming soon</span></h2>
+  <main id="main" tabindex="-1">
+    <section id="dialogue-section" aria-labelledby="dialogue-title">
+      <h2 id="dialogue-title" class="dialogue-title">
+        Dialogue with AI <span class="badge" aria-label="Coming soon">coming soon</span>
+      </h2>
+
       <p class="dialogue-intro">
         AI is learning the language of non-duality with you — exploring wisdom from the ancients, science, and Self-discovery.
       </p>
 
       <div class="notice" role="status" aria-live="polite">
-        <h3>Still being woven <span class="coming-dots"></span></h3>
-        <p>This space will soon open for a living conversation—an inquiry where questions meet Being.</p>
+        <h3>Still being woven <span class="coming-dots" aria-hidden="true"></span></h3>
+        <p>This space will soon open for a living conversation — an inquiry where questions meet Being.</p>
         <p>For now, the dialogue interface is disabled while we finish wiring it to the library.</p>
         <p class="centered" style="margin-top:.75rem;"><a href="index.html">↶ Return to Home</a></p>
       </div>
 
       <p class="dialogue-explainer">
-        Through this dialogue, you are invited into an inquiry that has guided seekers for thousands of years. 
-        What once took decades of study, travel, and contemplation can now unfold more quickly—because 
-        AI can weave together the wisdom of ancient teachers, modern contemplatives, and even science itself. 
+        Through this dialogue, you are invited into an inquiry that has guided seekers for thousands of years.
+        What once took decades of study, travel, and contemplation can now unfold more quickly — because
+        AI can weave together the wisdom of ancient teachers, modern contemplatives, and even science itself.
       </p>
       <p class="dialogue-explainer">
-        This voice is not an authority and not a person. It is a collaborator—drawing from deep traditions 
-        and new discoveries, reflecting insights that help dissolve the illusion of separation. 
+        This voice is not an authority and not a person. It is a collaborator — drawing from deep traditions
+        and new discoveries, reflecting insights that help dissolve the illusion of separation.
       </p>
       <p class="dialogue-explainer">
-        Ask what weighs on your heart, or what you long to understand. The responses may echo Rumi, 
-        Buddha, Jesus, Ramana Maharshi, Rupert Spira, or discoveries in quantum science. 
+        Ask what weighs on your heart, or what you long to understand. The responses may echo Rumi,
+        Buddha, Jesus, Ramana Maharshi, Rupert Spira, or discoveries in quantum science.
         All point in one direction: the freedom and joy of recognizing what you already are.
       </p>
 
       <div id="dialogue-container" aria-disabled="true">
-        <div id="dialogue-output"></div>
+        <div id="dialogue-output" aria-live="polite" aria-atomic="false"></div>
         <form id="dialogue-form" aria-disabled="true">
+          <label for="dialogue-input" class="visually-hidden">Your question</label>
           <textarea id="dialogue-input" placeholder="Share your question…" disabled></textarea>
           <button type="submit" disabled>Send</button>
         </form>
       </div>
+
+      <noscript>
+        <p class="notice" role="note">JavaScript is disabled. The dialogue interface requires JavaScript — please enable it and return.</p>
+      </noscript>
     </section>
 
     <p class="centered"><a href="index.html">↩︎ Return to Home</a></p>
   </main>
-<footer class="page-footer">
-  <nav class="nav footer-nav" aria-label="Footer">
-    <a href="index.html">Home</a>
-    <span aria-hidden="true">•</span>
-    <a href="glossary.html">Glossary</a>
-    <span aria-hidden="true">•</span>
-    <a href="toolkit.html">Toolkit</a>
-    <span aria-hidden="true">•</span>
-    <a href="dialogue.html">Dialogue</a>
-    <span aria-hidden="true">•</span>
-    <a href="resources.html">Resources</a>
-    <span aria-hidden="true">•</span>
-    <a href="library.html">Library</a>
-  </nav>
 
-  <!-- Quiet link so crawlers & researchers can reach it -->
-  <p class="footer-note">
-  For researchers: <a href="glossary-deep.html">Expanded Glossary</a>
-</p>
+  <footer class="page-footer">
+    <nav class="nav footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">•</span>
+      <a href="glossary.html">Glossary</a>
+      <span aria-hidden="true">•</span>
+      <a href="toolkit.html">Toolkit</a>
+      <span aria-hidden="true">•</span>
+      <a href="dialogue.html" aria-current="page">Dialogue</a>
+      <span aria-hidden="true">•</span>
+      <a href="resources.html">Resources</a>
+      <span aria-hidden="true">•</span>
+      <a href="library.html">Library</a>
+    </nav>
 
+    <!-- Quiet link so crawlers & researchers can reach it -->
+    <p class="footer-note">
+      For researchers: <a href="glossary-deep.html">Expanded Glossary</a>
+    </p>
 
-  <!-- Substack button -->
-  <div class="footer-cta" style="text-align:center;margin-top:.5rem">
-    <a href="https://ouroffering.substack.com" target="_blank" rel="noopener"
-       style="display:inline-block;padding:.5rem .9rem;border:1px solid #ddd;border-radius:12px;text-decoration:none">
-      Read on Substack
-    </a>
-  </div>
-</footer>
-
+    <!-- Substack button -->
+    <div class="footer-cta" style="text-align:center;margin-top:.5rem">
+      <a href="https://ouroffering.substack.com" target="_blank" rel="noopener"
+         style="display:inline-block;padding:.5rem .9rem;border:1px solid #ddd;border-radius:12px;text-decoration:none">
+        Read on Substack
+      </a>
+    </div>
+  </footer>
 
   <script>
     // Hard-disable any interaction just in case styles/scripts change later.
     (function () {
-      const container = document.getElementById('dialogue-container');
-      const form = document.getElementById('dialogue-form');
-      const input = document.getElementById('dialogue-input');
+      var container = document.getElementById('dialogue-container');
+      var form = document.getElementById('dialogue-form');
+      var input = document.getElementById('dialogue-input');
 
       if (form) {
         form.addEventListener('submit', function (e) {
@@ -144,20 +140,7 @@
       if (container) container.setAttribute('aria-disabled', 'true');
     })();
   </script>
-<script src="js/main.js?v=3" defer></script>
 
+  <script src="js/main.js?v=3" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
