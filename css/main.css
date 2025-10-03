@@ -574,6 +574,41 @@ article blockquote {
   color: #666;
 }
 
+/* --- Dialogue page helpers --- */
+
+/* Small pill-style badge */
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  color: #444;
+  margin-left: 0.25rem;
+}
+
+/* Animated dots for "coming soon" */
+.coming-dots::after {
+  content: '...';
+  animation: dots 1.5s steps(3, end) infinite;
+}
+@keyframes dots {
+  0%   { content: ''; }
+  33%  { content: '.'; }
+  66%  { content: '..'; }
+  100% { content: '...'; }
+}
+
+/* Screen-reader only text (keeps layout clean) */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
 
 
 
