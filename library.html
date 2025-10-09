@@ -47,17 +47,92 @@
       Each piece points gently back to the field itself: simple, whole, eternal.
     </p>
 
-    <!-- Contents -->
-    <nav class="toc" aria-label="Library contents">
-      <h2 class="visually-hidden">Contents</h2>
-      <ul>
-        <li>
-  <a href="#we-must-remember-this">We Must Remember This</a>
-  <span class="toc-date">(September 7, 2025)</span>
-</li>
+    <!-- Contents (dynamic, searchable, year-grouped) -->
+<nav class="toc" aria-label="Library contents">
+  <h2 class="visually-hidden">Contents</h2>
 
-      </ul>
-    </nav>
+  <!-- quick filter -->
+  <div class="toc-controls" style="margin:.5rem 0 1rem;">
+    <label for="libSearch" class="visually-hidden">Filter</label>
+    <input id="libSearch" type="search" placeholder="Filter by title or tag…" style="max-width:320px;width:100%;padding:.4rem .6rem;">
+  </div>
+
+  <!-- list renders here -->
+  <div id="libList"></div>
+  <button id="libMore" type="button" style="margin-top:.75rem;">Show more</button>
+</nav>
+
+<!-- Library manifest: ONLY items that exist right now -->
+<script id="library-manifest" type="application/json">
+[
+  {
+    "date":"2025-09-07",
+    "title":"We Must Remember This",
+    "slug":"#we-must-remember-this",
+    "tags":["contemplation"],
+    "desc":"Expand rather than contract."
+  }
+]
+</script>
+
+<script>
+(function(){
+  const dataEl = document.getElementById('library-manifest');
+  const manifest = JSON.parse(dataEl.textContent || '[]').sort((a,b)=> a.date < b.date ? 1 : -1);
+
+  const listEl = document.getElementById('libList');
+  const moreBtn = document.getElementById('libMore');
+  const searchEl = document.getElementById('libSearch');
+
+  const PAGE = 8;
+  let offset = 0;
+  let filtered = manifest;
+  let lastYear = '';
+
+  function fmtDate(iso){
+    try { return new Date(iso).toLocaleDateString(undefined,{month:'short', day:'numeric'}); }
+    catch(e){ return ''; }
+  }
+
+  function render(reset){
+    if (reset){ listEl.innerHTML=''; offset=0; lastYear=''; }
+    const slice = filtered.slice(offset, offset + PAGE);
+    let html = '';
+    slice.forEach(item=>{
+      const y = (item.date||'').slice(0,4);
+      if (y && y !== lastYear) {
+        html += `<h3 class="toc-year" style="margin:1rem 0 .4rem;opacity:.85">${y}</h3>`;
+        lastYear = y;
+      }
+      const date = item.date ? ` <span class="toc-date">(${fmtDate(item.date)})</span>` : '';
+      const desc = item.desc ? `<div class="toc-desc" style="opacity:.8">${item.desc}</div>` : '';
+      const tags = (item.tags && item.tags.length) ? `<div class="toc-tags" style="opacity:.7">#${item.tags.join(' #')}</div>` : '';
+      html += `<div class="toc-item" style="margin:.4rem 0 .6rem;">
+        <a href="${item.slug}">${item.title}</a>${date}
+        ${desc}
+        ${tags}
+      </div>`;
+    });
+    listEl.insertAdjacentHTML('beforeend', html);
+    offset += slice.length;
+    moreBtn.hidden = offset >= filtered.length;
+  }
+
+  function applyFilter(){
+    const q = (searchEl && searchEl.value || '').toLowerCase().trim();
+    filtered = !q ? manifest : manifest.filter(it=>{
+      const hay = [it.title, it.desc, (it.tags||[]).join(' ')].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+    render(true);
+  }
+
+  if (searchEl) searchEl.addEventListener('input', applyFilter);
+  moreBtn.addEventListener('click', ()=> render(false));
+  render(true);
+})();
+</script>
+
 
     <hr />
 
