@@ -356,6 +356,52 @@ a.glossary-link:focus-visible {
   background: #fff3b0;        /* soft yellow highlight */
   border-radius: 0.2rem;
 }
+/* === Library Entry Styling === */
+.library-entry {
+  max-width: 720px;
+  margin: 3em auto;
+  padding: 0 1.5em;
+  font-family: Georgia, serif;
+  line-height: 1.7;
+  color: #222;
+}
+
+.library-entry h1 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 0.8em;
+  color: #222;
+}
+
+.library-entry blockquote {
+  font-style: italic;
+  margin: 1.5em auto;
+  padding: 1em 1.5em;
+  border-left: 3px solid #999;
+  background: #f8f8f8;
+  border-radius: 6px;
+  color: #444;
+}
+
+.library-entry p {
+  margin-bottom: 1.1em;
+}
+
+.library-entry .center {
+  text-align: center;
+  font-size: 1.1em;
+  margin: 1.5em 0;
+}
+
+.library-entry em {
+  font-style: italic;
+  color: #333;
+}
+
+.library-entry strong {
+  color: #111;
+}
+
 /* --- Final Site Navigation Styling --- */
 .site-nav {
   margin: 1rem 0;
@@ -608,6 +654,7 @@ article blockquote {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
+
 
 
 
