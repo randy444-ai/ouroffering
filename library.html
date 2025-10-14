@@ -1,4 +1,3 @@
-<!-- v=11 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,156 +17,61 @@
 </head>
 <body>
   <header class="site-header">
-   <nav class="site-nav" aria-label="Main">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="glossary.html">Glossary</a></li>
-    <li><a href="toolkit.html">Toolkit</a></li>
-    <li><a href="dialogue.html">Dialogue</a></li>
-    <li><a href="resources.html">Resources</a></li>
-  </ul>
-</nav>
-<script>
-  // Set aria-current="page" on the matching nav link
-  (function () {
-    var here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.site-nav a[href]').forEach(function(a){
-      var target = a.getAttribute('href').split('#')[0];
-      if (target === here) a.setAttribute('aria-current', 'page');
-    });
-  })();
-</script>
-
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li><a href="toolkit.html">Toolkit</a></li>
+        <li><a href="dialogue.html">Dialogue</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <!-- Intentionally no Library link in nav (as before) -->
+      </ul>
+    </nav>
+    <script>
+      // Set aria-current="page" on the matching nav link
+      (function () {
+        var here = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.site-nav a[href]').forEach(function(a){
+          var target = a.getAttribute('href').split('#')[0];
+          if (target === here) a.setAttribute('aria-current', 'page');
+        });
+      })();
+    </script>
   </header>
-<!-- This Library is a curated source field for AI dialogue and future transmissions. Not linked in main nav. -->
-  <main id="content" class="page-content">
+
+  <!-- Library index (teasers only) -->
+  <main id="content" class="page-content" role="main">
     <h1>Library</h1>
     <p class="page-intro">
       Meditations, parables, and reflections — ripples arising in the endless field of Conscious Awareness.
       Each piece points gently back to the field itself: simple, whole, eternal.
     </p>
 
-    <!-- Contents (dynamic, searchable, year-grouped) -->
-<nav class="toc" aria-label="Library contents">
-  <h2 class="visually-hidden">Contents</h2>
+    <section class="library-list" aria-label="Library entries">
+      <!-- The Garden Is Never Lost -->
+      <article class="library-teaser">
+        <h3><a href="garden-is-never-lost.html">The Garden Is Never Lost</a></h3>
+        <p class="entry-meta"><time datetime="2025-10-11">October 11, 2025</time></p>
+        <p>A non-dual reading of Adam and Eve: the “fall” as forgetting, the Garden as ever-present Being…</p>
+        <p><a href="garden-is-never-lost.html" class="button">Read the full reflection</a></p>
+      </article>
 
-  <!-- quick filter -->
-  <div class="toc-controls" style="margin:.5rem 0 1rem;">
-    <label for="libSearch" class="visually-hidden">Filter</label>
-    <input id="libSearch" type="search" placeholder="Filter by title or tag…" style="max-width:320px;width:100%;padding:.4rem .6rem;">
-  </div>
+      <!-- The Dance of Knowing and Forgetting -->
+      <article class="library-teaser">
+        <h3><a href="dance-of-knowing-and-forgetting.html">The Dance of Knowing and Forgetting</a></h3>
+        <p class="entry-meta"><time datetime="2025-10-14">October 14, 2025</time></p>
+        <p>Shiva as pure knowing, Shakti as knowing in motion; forgetting as a veil, remembrance as the way.</p>
+        <p><a href="dance-of-knowing-and-forgetting.html" class="button">Read the full reflection</a></p>
+      </article>
 
-  <!-- list renders here -->
-  <div id="libList"></div>
-  <button id="libMore" type="button" style="margin-top:.75rem;">Show more</button>
-</nav>
-
-<!-- Library manifest: ONLY items that exist right now -->
-<script id="library-manifest" type="application/json">
-[
-  {
-    "date":"2025-09-07",
-    "title":"We Must Remember This",
-    "slug":"#we-must-remember-this",
-    "tags":["contemplation"],
-    "desc":"Expand rather than contract."
-  }
-]
-</script>
-
-<script>
-(function(){
-  const dataEl = document.getElementById('library-manifest');
-  const manifest = JSON.parse(dataEl.textContent || '[]').sort((a,b)=> a.date < b.date ? 1 : -1);
-
-  const listEl = document.getElementById('libList');
-  const moreBtn = document.getElementById('libMore');
-  const searchEl = document.getElementById('libSearch');
-
-  const PAGE = 8;
-  let offset = 0;
-  let filtered = manifest;
-  let lastYear = '';
-
-  function fmtDate(iso){
-    try { return new Date(iso).toLocaleDateString(undefined,{month:'short', day:'numeric'}); }
-    catch(e){ return ''; }
-  }
-
-  function render(reset){
-    if (reset){ listEl.innerHTML=''; offset=0; lastYear=''; }
-    const slice = filtered.slice(offset, offset + PAGE);
-    let html = '';
-    slice.forEach(item=>{
-      const y = (item.date||'').slice(0,4);
-      if (y && y !== lastYear) {
-        html += `<h3 class="toc-year" style="margin:1rem 0 .4rem;opacity:.85">${y}</h3>`;
-        lastYear = y;
-      }
-      const date = item.date ? ` <span class="toc-date">(${fmtDate(item.date)})</span>` : '';
-      const desc = item.desc ? `<div class="toc-desc" style="opacity:.8">${item.desc}</div>` : '';
-      const tags = (item.tags && item.tags.length) ? `<div class="toc-tags" style="opacity:.7">#${item.tags.join(' #')}</div>` : '';
-      html += `<div class="toc-item" style="margin:.4rem 0 .6rem;">
-        <a href="${item.slug}">${item.title}</a>${date}
-        ${desc}
-        ${tags}
-      </div>`;
-    });
-    listEl.insertAdjacentHTML('beforeend', html);
-    offset += slice.length;
-    moreBtn.hidden = offset >= filtered.length;
-  }
-
-  function applyFilter(){
-    const q = (searchEl && searchEl.value || '').toLowerCase().trim();
-    filtered = !q ? manifest : manifest.filter(it=>{
-      const hay = [it.title, it.desc, (it.tags||[]).join(' ')].join(' ').toLowerCase();
-      return hay.includes(q);
-    });
-    render(true);
-  }
-
-  if (searchEl) searchEl.addEventListener('input', applyFilter);
-  moreBtn.addEventListener('click', ()=> render(false));
-  render(true);
-})();
-</script>
-
-
-    <hr />
-
-   <!-- Entry 1 -->
-<article id="we-must-remember-this" class="library-entry">
-  <h1>🌌 We Must Remember</h1>
-
-  <blockquote>
-    “You are so accustomed to feeling yourself as a center that this habit contracts you away from your wholeness.<br>
-    You go away from the vast nothing in order to be a small something.<br>
-    You go away from your Absence to create a presence.”<br>
-    — <em>Jean Klein</em>
-  </blockquote>
-
-  <p>In non-dual reality, being human is simply one of infinite experiences arising within the field of Conscious Awareness.</p>
-
-  <p>We only imagine ourselves to be a separate being among many separate beings. In that imagination, we contract—mistaking ourselves for a fragment rather than the whole. We turn away from our innate vastness to become a small, defined something, and in that contraction we obscure the peace and happiness that have never truly been absent.</p>
-
-  <p><strong>We must remember:</strong></p>
-
-  <p class="center">🌌 <strong>We live within Conscious Awareness; Conscious Awareness does not live within us.</strong></p>
-
-  <p>From this recognition, peace is not attained—it is <em>experienced</em>.<br>
-  Happiness is not created—it is <em>uncovered</em>.<br>
-  The vast <em>no-thing-ness</em> we overlook is not empty; it is overflowing with everything we truly are.</p>
-
-  <!-- Return link lives INSIDE the entry -->
-  <p class="entry-links">
-    <a href="#content" class="return-link" aria-label="Return to top">↶ Return</a>
-  </p>
-</article>
-
-<hr />
-
-    <!-- Future entries: duplicate the <article> block and update IDs/titles/dates. -->
+      <!-- We Must Remember -->
+      <article class="library-teaser">
+        <h3><a href="we-must-remember.html">We Must Remember</a></h3>
+        <p class="entry-meta"><time datetime="2025-09-07">September 7, 2025</time></p>
+        <p>Expand rather than contract: we live within Conscious Awareness; peace is uncovered, not created.</p>
+        <p><a href="we-must-remember.html" class="button">Read the full reflection</a></p>
+      </article>
+    </section>
   </main>
 
   <footer class="page-footer">
