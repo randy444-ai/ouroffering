@@ -654,6 +654,12 @@ article blockquote {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
+/* --- YouTube thumbnail card (Resources) --- */
+.yt-card { display:inline-block; text-decoration:none; border:1px solid #e6e2dc; border-radius:10px; overflow:hidden; background:#fff; }
+.yt-card img { display:block; width:320px; height:auto; }
+.yt-card .yt-title { display:block; padding:.5rem .75rem; font-weight:600; color:#2e2e2e; }
+.yt-card:hover { box-shadow:0 1px 10px rgba(0,0,0,.06); }
+
 
 
 
