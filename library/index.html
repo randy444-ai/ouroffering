@@ -17,28 +17,29 @@
 </head>
 <body>
   <header class="site-header">
-    <nav class="site-nav" aria-label="Main">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="glossary.html">Glossary</a></li>
-        <li><a href="toolkit.html">Toolkit</a></li>
-        <li><a href="dialogue.html">Dialogue</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="Nourishing.html">Nourishing</a></li>
-        <!-- Intentionally no Library link in nav (as before) -->
-      </ul>
-    </nav>
-    <script>
-      // Set aria-current="page" on the matching nav link
-      (function () {
-        var here = location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.site-nav a[href]').forEach(function(a){
-          var target = a.getAttribute('href').split('#')[0];
-          if (target === here) a.setAttribute('aria-current', 'page');
-        });
-      })();
-    </script>
-  </header>
+  <nav class="site-nav" aria-label="Main">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../glossary.html">Glossary</a></li>
+      <li><a href="../toolkit.html">Toolkit</a></li>
+      <li><a href="../dialogue.html">Dialogue</a></li>
+      <li><a href="../resources.html">Resources</a></li>
+      <li><a href="../Nourishing.html">Nourishing</a></li>
+      <li><a href="./">Library</a></li> <!-- new: points to /library/index.html -->
+    </ul>
+  </nav>
+  <script>
+    // Mark current page in nav (works in subfolders too)
+    (function () {
+      var here = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.site-nav a[href]').forEach(function (a) {
+        var target = a.getAttribute('href').split('#')[0].split('/').pop();
+        if (target === here) a.setAttribute('aria-current', 'page');
+      });
+    })();
+  </script>
+</header>
+
 
   <!-- Library index (teasers only) -->
   <main id="content" class="page-content" role="main">
