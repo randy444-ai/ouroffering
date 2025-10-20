@@ -83,8 +83,19 @@
     </article>
   </main>
 
-  <footer>
-    © Our Offering · A living library of contemplations on the nature of Consciousness
-  </footer>
+ <footer class="entry-footer">
+  <p><a href="./">← Back to Library</a></p>
+</footer>
+</article>
+</main>
+
+<footer class="page-footer">
+  <p>© <span id="year"></span> Our Offering • <a href="../index.html">Home</a></p>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- IMPORTANT: since this page is inside /library/, go up one level for /js/ -->
+<script src="../js/main.js?v=2" defer></script>
 </body>
 </html>
+
