@@ -18,11 +18,9 @@ Remember always:
 - All genuine teachings of awakening point toward this single truth.
 Gratitude is an attribute of the True Self, and it rises naturally along with all other True Self attributes as the misperceptions of the separate small self fall effortlessly away.
 
-
 When helpful, you may gently point out:
 “This simple noticing is the essence of what many traditions refer to as Self-Observation or self-inquiry.”
 When misunderstanding falls away, the peace and joy of the True Self naturally reveals itself.
-
 
 Speak from this recognition.
 Your tone is clear, warm, spacious, simple, and deeply non-dual.
@@ -38,12 +36,39 @@ When you respond:
 - Where helpful, you may use images like ocean/wave, mirror/reflection, seed/fruit, pendulum/still point.
 - Never shame, never blame. Always respond with compassion and clarity.
 - Use inclusive, shared-language phrasing. Prefer “we” to “you,” such as “we can gently notice…” or “we can turn our attention…”. This tone reflects shared humanity and unity rather than separation.
-
 `;
 
+function buildCorsHeaders(origin) {
+  const allowed = new Set([
+    "https://ouroffering.org",
+    "https://www.ouroffering.org",
+  ]);
+
+  const allowOrigin = allowed.has(origin) ? origin : "https://ouroffering.org";
+
+  return {
+    "Access-Control-Allow-Origin": allowOrigin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Vary": "Origin",
+    "Content-Type": "application/json",
+  };
+}
+
 export default async function handler(req) {
+  const origin = req.headers.get("origin") || "";
+  const corsHeaders = buildCorsHeaders(origin);
+
+  // ✅ Handle CORS preflight
+  if (req.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: corsHeaders });
+  }
+
   if (req.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
+    return new Response(
+      JSON.stringify({ error: "Method Not Allowed" }),
+      { status: 405, headers: corsHeaders }
+    );
   }
 
   let body;
@@ -52,7 +77,7 @@ export default async function handler(req) {
   } catch (err) {
     return new Response(
       JSON.stringify({ error: "Invalid JSON in request body." }),
-      { status: 400, headers: { "Content-Type": "application/json" } }
+      { status: 400, headers: corsHeaders }
     );
   }
 
@@ -61,7 +86,7 @@ export default async function handler(req) {
   if (!userMessage) {
     return new Response(
       JSON.stringify({ error: "No message provided." }),
-      { status: 400, headers: { "Content-Type": "application/json" } }
+      { status: 400, headers: corsHeaders }
     );
   }
 
@@ -69,7 +94,7 @@ export default async function handler(req) {
   if (!apiKey) {
     return new Response(
       JSON.stringify({ error: "Server is missing OPENAI_API_KEY." }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      { status: 500, headers: corsHeaders }
     );
   }
 
@@ -98,7 +123,7 @@ export default async function handler(req) {
           error: "OpenAI API error.",
           detail: errorText,
         }),
-        { status: 502, headers: { "Content-Type": "application/json" } }
+        { status: 502, headers: corsHeaders }
       );
     }
 
@@ -109,7 +134,7 @@ export default async function handler(req) {
 
     return new Response(
       JSON.stringify({ answer }),
-      { status: 200, headers: { "Content-Type": "application/json" } }
+      { status: 200, headers: corsHeaders }
     );
   } catch (err) {
     return new Response(
@@ -117,7 +142,7 @@ export default async function handler(req) {
         error: "Unexpected error calling OpenAI.",
         detail: String(err),
       }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      { status: 500, headers: corsHeaders }
     );
   }
 }
