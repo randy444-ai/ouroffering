@@ -660,6 +660,11 @@ article blockquote {
 .yt-card .yt-title { display:block; padding:.5rem .75rem; font-weight:600; color:#2e2e2e; }
 .yt-card:hover { box-shadow:0 1px 10px rgba(0,0,0,.06); }
 
+.dialogue-meta {
+  font-size: 0.85em;
+  opacity: 0.75;
+  margin-top: 0.5rem;
+}
 
 
 
