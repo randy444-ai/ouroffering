@@ -28,92 +28,6 @@ h1, h2, h3,
   text-align: center;
 }
 
-/* ===========================
-   Dialogue Section
-   =========================== */
-#dialogue-section {
-  text-align: center; /* headings + intros */
-}
-
-.dialogue-title {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.dialogue-intro {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-/* Explanatory paragraphs */
-.dialogue-explainer {
-  font-size: 1.05rem;
-  color: #444;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-/* Dialogue container (chat UI) */
-#dialogue-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem auto;
-  max-width: 700px;
-  text-align: left; /* make conversation left-aligned */
-}
-
-/* Dialogue output box */
-#dialogue-output {
-  width: 100%;
-  min-height: 150px;
-  padding: 1.2rem;
-  margin-bottom: 1.5rem;
-  background: #fff;
-  border-radius: 1rem;
-  border: 1px solid #ddd;
-  box-shadow: inset 0 1px 4px rgba(0,0,0,0.08);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  overflow-y: auto;
-  white-space: pre-line;
-}
-
-/* Dialogue form */
-#dialogue-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-#dialogue-input {
-  width: 100%;
-  min-height: 140px;
-  padding: 1rem;
-  font-size: 1.1rem;
-  border-radius: 0.8rem;
-  border: 1px solid #ccc;
-  resize: vertical;
-  margin-bottom: 1rem;
-}
-
-#dialogue-form button {
-  align-self: flex-end;
-  padding: 0.6rem 1.4rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.8rem;
-  background: #4a7c59;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-#dialogue-form button:hover {
-  background: #3a6045;
-}
 
 /* ===========================
    Glossary
@@ -668,7 +582,7 @@ article blockquote {
 
 /* ===========================
    Dialogue Page (dialogue.html)
-   Matches: .dialogue-interface, #dialogue-log, .dialogue-form, .dialogue-submit
+   Q&A layout: input on top, answers below
    =========================== */
 
 .dialogue-interface{
@@ -680,22 +594,6 @@ article blockquote {
   text-align: left;
 }
 
-/* The conversation area should NOT keep growing forever.
-   It should scroll, keeping the input visible below. */
-#dialogue-log{
-  width: 100%;
-  max-height: 55vh;              /* adjust 50–65vh to taste */
-  overflow-y: auto;
-  padding: 1.2rem;
-  background: #fff;
-  border-radius: 1rem;
-  border: 1px solid #ddd;
-  box-shadow: inset 0 1px 4px rgba(0,0,0,0.08);
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* Form layout */
 .dialogue-form{
   width: 100%;
   display: flex;
@@ -728,6 +626,20 @@ article blockquote {
 .dialogue-submit:hover{
   background: #3a6045;
 }
+
+#dialogue-log{
+  width: 100%;
+  max-height: 55vh;
+  overflow-y: auto;
+  padding: 1.2rem;
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.08);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
 
 
 
