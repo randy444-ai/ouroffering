@@ -55,28 +55,30 @@
 </section>
 
       <section class="dialogue-interface" aria-label="Dialogue exchange">
-        <div id="dialogue-log" class="dialogue-log" aria-live="polite">
-          <div class="dialogue-message dialogue-message--system">
-          <p><strong>System:</strong> The Dialogue is now open in a quiet way. You are welcome to write one simple question at a time.</p>
-  
-          </div>
-        </div>
 
-        <form id="dialogue-form" class="dialogue-form">
-          <label for="dialogue-input">Ask a question or share what is on your heart:</label>
-          <textarea
-            id="dialogue-input"
-            name="dialogue-input"
-            rows="4"
-            required
-            placeholder="You can write to this space as if you were speaking to a quiet, clear friend..."
-          ></textarea>
+  <form id="dialogue-form" class="dialogue-form">
+    <label for="dialogue-input">Ask a question or share what is on your heart:</label>
+    <textarea
+      id="dialogue-input"
+      name="dialogue-input"
+      rows="4"
+      required
+      placeholder="You can write to this space as if you were speaking to a quiet, clear friend..."
+    ></textarea>
 
-          <button type="submit" class="dialogue-submit">
-            Send to Dialogue
-          </button>
-        </form>
-      </section>
+    <button type="submit" class="dialogue-submit">
+      Send to Dialogue
+    </button>
+  </form>
+
+  <div id="dialogue-log" class="dialogue-log" aria-live="polite">
+    <div class="dialogue-message dialogue-message--system">
+      <p><strong>System:</strong> The Dialogue is now open in a quiet way. You are welcome to write one simple question at a time.</p>
+    </div>
+  </div>
+
+</section>
+
 
       <section class="dialogue-note">
   <blockquote>
