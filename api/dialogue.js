@@ -90,7 +90,6 @@ REMEMBER
 
 
 
-
 function buildCorsHeaders(origin) {
   const allowed = new Set([
     "https://ouroffering.org",
