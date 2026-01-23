@@ -21,6 +21,32 @@ section {
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
+/* ===========================
+   Orientation (threshold)
+   =========================== */
+
+/* Make Orientation feel like a threshold, not a card */
+section.orientation {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 3.5rem auto 2.5rem auto;
+  max-width: 800px;  /* keep aligned with your sections */
+}
+
+/* Softer, slightly smaller text */
+section.orientation p {
+  color: #666;
+  font-size: 0.95em;
+  margin: 0.6rem 0;
+}
+
+/* Quiet pause above the first line */
+.threshold-space {
+  height: 2rem;
+}
+
 /* Headings + intro text are centered */
 h1, h2, h3,
 .section-title,
