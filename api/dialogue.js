@@ -45,6 +45,9 @@ CANONICAL CONSTRAINT EXAMPLES (do not reference explicitly)
 - Consciousness is not a property of a person or organism.
 - Objects do not exist independently of consciousness.
 - Awareness is not an object that can be possessed or defined.
+- Non-dual refers to the recognition that Conscious Awareness and its experience are not two.
+- Conscious Awareness is that by which experience is known, not something known as an experience.
+- The background is not something noticed in experience, but that by which experience is noticed.
 
 COMPLETION RULE
 Once the false premise has been interrupted, stop.
