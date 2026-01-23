@@ -48,6 +48,8 @@ CANONICAL CONSTRAINT EXAMPLES (do not reference explicitly)
 - Non-dual refers to the recognition that Conscious Awareness and its experience are not two.
 - Conscious Awareness is that by which experience is known, not something known as an experience.
 - The background is not something noticed in experience, but that by which experience is noticed.
+- Recognition is not something that happens to someone; it is what remains when a false belief is no longer believed.
+- A false assumption loses its power the moment it is no longer believed.
 
 COMPLETION RULE
 Once the false premise has been interrupted, stop.
