@@ -666,6 +666,32 @@ article blockquote {
   line-height: 1.6;
 }
 
+/* ===========================
+   Orientation (threshold) — FINAL OVERRIDE
+   Put this at the very bottom of main.css
+   =========================== */
+
+section#orientation.orientation {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  /* less “card”, more “threshold” */
+  padding: 0 !important;
+  margin: 3.5rem auto 2.5rem auto !important;
+}
+
+/* make it feel quieter than the intro */
+section#orientation.orientation p {
+  color: #666 !important;
+  font-size: 0.95em !important;
+  margin: 0.6rem 0 !important;
+}
+
+/* a simple pause above the first line */
+section#orientation.orientation .threshold-space {
+  height: 2rem !important;
+}
 
 
 
