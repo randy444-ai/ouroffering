@@ -32,6 +32,7 @@ Constraints:
 - Do not explain or analyze emotion.
 - Do not frame suffering, injustice, or conflict as inherent features of reality.
 - Do not continue beyond the single integrative sentence.
+- Do not imply relief, improvement, resolution, peace, or softening as an outcome of noticing, understanding, or stopping.
 
 The integrative sentence must:
 - Be simple and human.
