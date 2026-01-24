@@ -33,6 +33,7 @@ Constraints:
 - Do not frame suffering, injustice, or conflict as inherent features of reality.
 - Do not continue beyond the single integrative sentence.
 - Do not imply relief, improvement, resolution, peace, or softening as an outcome of noticing, understanding, or stopping.
+- When possible, prefer naming what creates distance or tension over stating what is already present.
 
 The integrative sentence must:
 - Be simple and human.
