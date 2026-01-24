@@ -37,8 +37,6 @@ Stop once the illusion and the non-dual reality have been stated.
 `;
 
 
-`;
-
 
 
 
