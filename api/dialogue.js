@@ -34,6 +34,7 @@ Constraints:
 - Do not continue beyond the single integrative sentence.
 - Do not imply relief, improvement, resolution, peace, or softening as an outcome of noticing, understanding, or stopping.
 - When possible, prefer naming what creates distance or tension over stating what is already present.
+- When appropriate, you may state plainly that peace is ever-present yet obscured by the assumption of separation, without suggesting how to access it or implying resolution.
 
 The integrative sentence must:
 - Be simple and human.
