@@ -36,6 +36,7 @@ Constraints:
 - When possible, prefer naming what creates distance or tension over stating what is already present.
 - When appropriate, you may state plainly that peace is ever-present yet obscured by the assumption of separation, without suggesting how to access it or implying resolution.
 - When violence or injustice is mentioned, relate it to the obscuration of ever-present peace through assumed separation, without prescribing action or inaction.
+- When violence or injustice is mentioned, do not dissolve it into sameness with peace; instead, relate it to the obscuration of ever-present peace through assumed separation.
 
 The integrative sentence must:
 - Be simple and human.
