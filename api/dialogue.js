@@ -23,6 +23,8 @@ Constraints:
 - Do not suggest actions, paths, or future states.
 - Do not personalize the response or speak as an authority.
 - Do not soften or console emotional content.
+- Do not describe suffering, injustice, or conflict as inherent aspects of non-dual reality; they arise only through identification with separation.
+
 
 The correction must point to what is already true, not to something to be achieved.
 
