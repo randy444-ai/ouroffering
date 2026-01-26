@@ -2,167 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dialogue | Our Offering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dialogue — Our Offering</title>
 
-  <link rel="stylesheet" href="css/main.css" />
-
-  <meta name="description" content="A gentle conversation inviting reflection and recognition within the perspective of non-dual understanding.">
-
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="css/main.css?v=2" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title"><a href="index.html">Our Offering</a></h1>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="toolkit.html">Toolkit</a></li>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="dialogue.html" aria-current="page">Dialogue</a></li>
-          <li><a href="resources.html">Resources</a></li>
-        </ul>
+  <div class="container">
+    <header>
+      <h1>Dialogue</h1>
+    </header>
+
+    <main>
+      <p>
+        The Dialogue is currently offline while the site is being refined.
+      </p>
+
+      <p class="small">
+        <a href="index.html">↩︎ Return Home</a>
+        <span aria-hidden="true">•</span>
+        <a href="library.html">Library</a>
+        <span aria-hidden="true">•</span>
+        <a href="glossary.html">Glossary</a>
+      </p>
+    </main>
+
+    <footer class="page-footer">
+      <nav class="nav footer-nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">•</span>
+        <a href="glossary.html">Glossary</a>
+        <span aria-hidden="true">•</span>
+        <a href="toolkit.html">Toolkit</a>
+        <span aria-hidden="true">•</span>
+        <a href="resources.html">Resources</a>
+        <span aria-hidden="true">•</span>
+        <a href="library.html">Library</a>
       </nav>
-    </div>
-  </header>
-
-  <main class="page-main">
-    <div class="container dialogue-page">
-      <section class="dialogue-intro">
-  <h2>Dialogue</h2>
-
-  <p>
-    This space is offered in the form of a conversation — a living dialogue designed to clarify and explore the understanding expressed throughout Our Offering.
-  </p>
-
-  <p>
-   It is not intended to provide solutions or advice, but to invite deeper recognition into the nature of non-dual reality.
-  </p>
-
-  <p>
-    You are welcome to bring questions related to this understanding — especially where confusion, curiosity, or uncertainty is present.
-The dialogue is guided to remain within the perspective shared across the world’s non-dual teachings, responding gently and consistently from that orientation.
-  </p>
-
- 
-</section>
-
-      <section class="dialogue-interface" aria-label="Dialogue exchange">
-
-  <form id="dialogue-form" class="dialogue-form">
-    <label for="dialogue-input">Ask a question or share a thought:</label>
-    <textarea
-      id="dialogue-input"
-      name="dialogue-input"
-      rows="4"
-      required
-      placeholder="You can write to this space"
-    ></textarea>
-
-    <button type="submit" class="dialogue-submit">
-      Send to Dialogue
-    </button>
-  </form>
-
-  <div id="dialogue-log" class="dialogue-log" aria-live="polite">
-    <div class="dialogue-message dialogue-message--system">
-      <p><strong>Response:</strong></p>
-    </div>
+    </footer>
   </div>
-
-</section>
-
-
-     
-
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="footer-year"></span> Our Offering. All rights reserved.</p>
-
-      <p class="dialogue-meta">
-      This dialogue is facilitated by an AI trained to reflect the understanding explored throughout Our Offering.
-    </p>
-    </div>
-  </footer>
-
-  <!-- Hidden: Dialogue Seed / System Prompt for the AI (not displayed on the page) -->
- <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("dialogue-form");
-    const input = document.getElementById("dialogue-input");
-    const log = document.getElementById("dialogue-log");
-    const yearSpan = document.getElementById("footer-year");
-
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-      const text = input.value.trim();
-      if (!text) return;
-
-      appendMessage("You", text, "user");
-
-      try {
-        const response = await fetch("https://ouroffering.vercel.app/api/dialogue", {
-
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ message: text }),
-        });
-
-        if (!response.ok) {
-          appendMessage(
-            "Dialogue",
-            "The Dialogue is present, but there was a difficulty reaching the response. Please try again in a moment.",
-            "ai"
-          );
-        } else {
-          const data = await response.json();
-          const answer = data && data.answer
-            ? String(data.answer)
-            : "I am here, but I was not able to form a clear reply. You might try asking in a slightly different way.";
-
-          appendMessage("Dialogue", answer, "ai");
-        }
-      } catch (err) {
-        appendMessage(
-          "Dialogue",
-          "The Dialogue is present, but there was a difficulty reaching the response. Please try again later.",
-          "ai"
-        );
-      }
-
-      log.scrollTop = log.scrollHeight;
-      input.value = "";
-      input.focus();
-    });
-
-    function appendMessage(who, text, type) {
-      const div = document.createElement("div");
-      div.className = "dialogue-message dialogue-message--" + type;
-      div.innerHTML = `<p><strong>${who}:</strong> ${escapeHtml(text)}</p>`;
-      log.appendChild(div);
-    }
-
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-  });
-</script>
-
 </body>
 </html>
-
