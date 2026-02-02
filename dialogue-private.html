@@ -119,26 +119,28 @@
           });
 
           if (!response.ok) {
-            appendMessage(
-              "Dialogue",
-              "The Dialogue is present, but there was a difficulty reaching the response. Please try again in a moment.",
-              "ai"
-            );
-          } else {
-            const data = await response.json();
-            const answer = data && data.answer
-              ? String(data.answer)
-              : "I am here, but I was not able to form a clear reply. You might try asking in a slightly different way.";
+  const detail = await response.text().catch(() => "");
+  appendMessage(
+    "Dialogue",
+    `Error ${response.status}: ${detail || "No detail returned."}`,
+    "ai"
+  );
+} else {
+  const data = await response.json();
+  const answer = data && data.answer
+    ? String(data.answer)
+    : "I am here, but I was not able to form a clear reply. You might try asking in a slightly different way.";
+  appendMessage("Dialogue", answer, "ai");
+}
 
-            appendMessage("Dialogue", answer, "ai");
-          }
-        } catch (err) {
-          appendMessage(
-            "Dialogue",
-            "The Dialogue is present, but there was a difficulty reaching the response. Please try again later.",
-            "ai"
-          );
-        }
+      } catch (err) {
+  appendMessage(
+    "Dialogue",
+    `Fetch failed: ${String(err)}`,
+    "ai"
+  );
+}
+  
 
         log.scrollTop = log.scrollHeight;
         input.value = "";
